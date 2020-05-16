@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "394717256142",
+    "firebase_url": "https://praiabarraca-2020.firebaseio.com",
+    "project_id": "praiabarraca-2020",
+    "storage_bucket": "praiabarraca-2020.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:394717256142:android:02ba81ed5c8ed5b943339f",
+        "android_client_info": {
+          "package_name": "dev.eduardoazevedo.praiabarraca"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "394717256142-p6k4mobvkne79q9vpu2piq1t4c5e4bgo.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyChlyvTnYOh9VbVgmBg-DUqCe3LVF0UeG4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "394717256142-p6k4mobvkne79q9vpu2piq1t4c5e4bgo.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "394717256142-rdvmrtdnr17p6jth1j5t7c0dld7dkrd3.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "br.net.praiabarraca"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
