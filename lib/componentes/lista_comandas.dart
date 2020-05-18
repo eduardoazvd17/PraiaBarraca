@@ -42,11 +42,22 @@ class ListaComandas extends StatelessWidget {
                   )),
                   title: Text(
                     '${doc['nomeCliente']}',
-                    overflow: TextOverflow.fade,
+                    overflow: TextOverflow.ellipsis,
                   ),
-                  subtitle: Text(
-                    '${doc['telefoneCliente']}',
-                    overflow: TextOverflow.fade,
+                  subtitle: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: 5),
+                      Text(
+                        'Celular: ${doc['telefoneCliente']}',
+                        overflow: TextOverflow.ellipsis,
+                      ),
+                      SizedBox(height: 5),
+                      Text(
+                        'Total: R\$${doc['total']}',
+                        overflow: TextOverflow.ellipsis,
+                      )
+                    ],
                   ),
                   trailing: Row(
                     mainAxisSize: MainAxisSize.min,

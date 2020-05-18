@@ -61,6 +61,7 @@ class _FormComandaState extends State<FormComanda> {
           .setData({
         'nomeCliente': nomeController.text,
         'telefoneCliente': telefoneController.text,
+        'total': '0.00',
         'isAberto': true,
       });
       Firestore.instance
