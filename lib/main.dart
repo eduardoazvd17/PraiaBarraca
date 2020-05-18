@@ -6,13 +6,21 @@ void main() => runApp(PraiaBarracaApp());
 class PraiaBarracaApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Praia Barraca',
-      theme: ThemeData(
-        primarySwatch: Colors.indigo,
+    return GestureDetector(
+      onTap: () {
+        var currentFocus = FocusScope.of(context);
+        if (!currentFocus.hasPrimaryFocus) {
+          currentFocus.unfocus();
+        }
+      },
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Praia Barraca',
+        theme: ThemeData(
+          primarySwatch: Colors.indigo,
+        ),
+        home: TelaSplash(),
       ),
-      home: TelaSplash(),
     );
   }
 }
