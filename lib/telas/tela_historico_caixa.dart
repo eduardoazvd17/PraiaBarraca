@@ -20,14 +20,19 @@ class _TelaHistoricoCaixaState extends State<TelaHistoricoCaixa> {
     );
 
     _abrirDatePicker(context) {
+      var dataAtual = DateTime.now();
+      dataAtual.subtract(Duration(
+          hours: dataAtual.hour,
+          minutes: dataAtual.minute,
+          seconds: dataAtual.second));
       showDatePicker(
         context: context,
         initialDate: dataSelecionada == null
-            ? DateTime.now()
+            ? dataAtual
             : dataSelecionada
                 .subtract(Duration(hours: 23, minutes: 59, seconds: 59)),
         firstDate: DateTime(2020),
-        lastDate: DateTime.now(),
+        lastDate: dataAtual,
       ).then((pickedDate) {
         if (pickedDate == null) {
           return;
