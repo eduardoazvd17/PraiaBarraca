@@ -132,9 +132,24 @@ class _TelaDetalhesCaixaState extends State<TelaDetalhesCaixa> {
                                             '${doc['nomeCliente']}',
                                             overflow: TextOverflow.fade,
                                           ),
-                                          subtitle: Text(
-                                            '${doc['telefoneCliente']}',
-                                            overflow: TextOverflow.fade,
+                                          subtitle: Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.start,
+                                            children: <Widget>[
+                                              SizedBox(height: 3),
+                                              Text(
+                                                'Celular: ${doc['telefoneCliente']}',
+                                                overflow: TextOverflow.fade,
+                                              ),
+                                              SizedBox(height: 3),
+                                              Text(
+                                                'Abertura: ${DateFormat('H:mm').format((doc['abertura'] as Timestamp).toDate())}',
+                                              ),
+                                              SizedBox(height: 3),
+                                              Text(
+                                                'Fechamento: ${DateFormat('H:mm').format((doc['fechamento'] as Timestamp).toDate())}',
+                                              ),
+                                            ],
                                           ),
                                           trailing: Column(
                                             mainAxisAlignment:

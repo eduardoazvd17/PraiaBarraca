@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:praiabarraca/componentes/form_desconto.dart';
 import 'package:praiabarraca/componentes/item_menu.dart';
 import 'package:praiabarraca/componentes/mensagem_lista_vazia.dart';
@@ -102,6 +103,11 @@ class _TelaFechamentoComandaState extends State<TelaFechamentoComanda> {
                               SizedBox(height: 5),
                               Text(
                                 'Celular: ${widget.comanda.telefoneCliente}',
+                                style: TextStyle(fontSize: 16),
+                              ),
+                              SizedBox(height: 5),
+                              Text(
+                                'Hora de Abertura: ${DateFormat('H:mm').format(widget.comanda.abertura)}',
                                 style: TextStyle(fontSize: 16),
                               ),
                             ],
@@ -265,6 +271,7 @@ class _TelaFechamentoComandaState extends State<TelaFechamentoComanda> {
                                       .document(widget.comanda.id.toString())
                                       .updateData({
                                     'isAberto': false,
+                                    'fechamento': DateTime.now(),
                                     'total': totalComanda.toStringAsFixed(2),
                                     'desconto': desconto.toStringAsFixed(2),
                                   });

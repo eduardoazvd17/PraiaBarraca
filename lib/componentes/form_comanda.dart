@@ -63,6 +63,7 @@ class _FormComandaState extends State<FormComanda> {
         'telefoneCliente': telefoneController.text,
         'total': '0.00',
         'isAberto': true,
+        'abertura': DateTime.now(),
       });
       Firestore.instance
           .collection('caixas')

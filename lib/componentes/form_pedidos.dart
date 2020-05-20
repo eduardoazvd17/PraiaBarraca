@@ -60,7 +60,7 @@ class _FormPedidoState extends State<FormPedido> {
                 .then((produtosDoc) {
               double total = 0;
               for (var p in produtosDoc.documents) {
-                total = (p['quantidade'] as int) * double.tryParse(p['valor']);
+                total += (p['quantidade'] as int) * double.tryParse(p['valor']);
               }
               c.reference.updateData({'total': total.toStringAsFixed(2)});
             });
@@ -91,7 +91,7 @@ class _FormPedidoState extends State<FormPedido> {
                 .then((produtosDoc) {
               double total = 0;
               for (var p in produtosDoc.documents) {
-                total = (p['quantidade'] as int) * double.tryParse(p['valor']);
+                total += (p['quantidade'] as int) * double.tryParse(p['valor']);
               }
               c.reference.updateData({'total': total.toStringAsFixed(2)});
             });

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:praiabarraca/componentes/form_comanda.dart';
 import 'package:praiabarraca/componentes/mensagem_lista_vazia.dart';
 import 'package:praiabarraca/modelos/comanda.dart';
@@ -44,19 +45,25 @@ class ListaComandas extends StatelessWidget {
                     '${doc['nomeCliente']}',
                     overflow: TextOverflow.ellipsis,
                   ),
+                  isThreeLine: true,
                   subtitle: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      SizedBox(height: 5),
+                      SizedBox(height: 3),
                       Text(
                         'Celular: ${doc['telefoneCliente']}',
                         overflow: TextOverflow.ellipsis,
                       ),
-                      SizedBox(height: 5),
+                      SizedBox(height: 3),
                       Text(
                         'Total: R\$${doc['total']}',
                         overflow: TextOverflow.ellipsis,
-                      )
+                      ),
+                      SizedBox(height: 3),
+                      Text(
+                        'Abertura: ${DateFormat('H:mm').format((doc['abertura'] as Timestamp).toDate())}',
+                        overflow: TextOverflow.ellipsis,
+                      ),
                     ],
                   ),
                   trailing: Row(
@@ -92,6 +99,7 @@ class ListaComandas extends StatelessWidget {
                               telefoneCliente:
                                   doc['telefoneCliente'].toString(),
                               isAberto: false,
+                              abertura: (doc['abertura'] as Timestamp).toDate(),
                             );
                             Navigator.of(context).push(
                               MaterialPageRoute(

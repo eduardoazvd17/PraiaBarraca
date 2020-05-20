@@ -114,7 +114,7 @@ class ListaProdutosPedidos extends StatelessWidget {
                                                 double total = 0;
                                                 for (var p
                                                     in produtosDoc.documents) {
-                                                  total =
+                                                  total +=
                                                       (p['quantidade'] as int) *
                                                           double.tryParse(
                                                               p['valor']);
