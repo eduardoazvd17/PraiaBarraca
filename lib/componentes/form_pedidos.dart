@@ -46,6 +46,26 @@ class _FormPedidoState extends State<FormPedido> {
             'quantidade': doc['quantidade'] + quantidade,
           });
         }
+      }).then((_) {
+        Firestore.instance
+            .collection('caixas')
+            .document(widget.estabelecimento.idCaixaAtual)
+            .collection('comandas')
+            .getDocuments()
+            .then((comandasDoc) {
+          for (var c in comandasDoc.documents) {
+            c.reference
+                .collection('pedidos')
+                .getDocuments()
+                .then((produtosDoc) {
+              double total = 0;
+              for (var p in produtosDoc.documents) {
+                total = (p['quantidade'] as int) * double.tryParse(p['valor']);
+              }
+              c.reference.updateData({'total': total.toStringAsFixed(2)});
+            });
+          }
+        });
       });
     } else {
       Firestore.instance
@@ -57,24 +77,28 @@ class _FormPedidoState extends State<FormPedido> {
           .document(widget.produto.id)
           .updateData({
         'quantidade': quantidade,
+      }).then((_) {
+        Firestore.instance
+            .collection('caixas')
+            .document(widget.estabelecimento.idCaixaAtual)
+            .collection('comandas')
+            .getDocuments()
+            .then((comandasDoc) {
+          for (var c in comandasDoc.documents) {
+            c.reference
+                .collection('pedidos')
+                .getDocuments()
+                .then((produtosDoc) {
+              double total = 0;
+              for (var p in produtosDoc.documents) {
+                total = (p['quantidade'] as int) * double.tryParse(p['valor']);
+              }
+              c.reference.updateData({'total': total.toStringAsFixed(2)});
+            });
+          }
+        });
       });
     }
-    Firestore.instance
-        .collection('caixas')
-        .document(widget.estabelecimento.idCaixaAtual)
-        .collection('comandas')
-        .getDocuments()
-        .then((comandasDoc) {
-      for (var c in comandasDoc.documents) {
-        c.reference.collection('pedidos').getDocuments().then((produtosDoc) {
-          double total = 0;
-          for (var p in produtosDoc.documents) {
-            total = (p['quantidade'] as int) * double.tryParse(p['valor']);
-          }
-          c.reference.updateData({'total': total.toStringAsFixed(2)});
-        });
-      }
-    });
     Navigator.of(context).pop();
   }
 

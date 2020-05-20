@@ -97,32 +97,35 @@ class ListaProdutosPedidos extends StatelessWidget {
                                     new FlatButton(
                                       child: new Text("Sim"),
                                       onPressed: () {
-                                        doc.reference.delete();
-                                        Firestore.instance
-                                            .collection('caixas')
-                                            .document(
-                                                estabelecimento.idCaixaAtual)
-                                            .collection('comandas')
-                                            .getDocuments()
-                                            .then((comandasDoc) {
-                                          for (var c in comandasDoc.documents) {
-                                            c.reference
-                                                .collection('pedidos')
-                                                .getDocuments()
-                                                .then((produtosDoc) {
-                                              double total = 0;
-                                              for (var p
-                                                  in produtosDoc.documents) {
-                                                total = (p['quantidade']
-                                                        as int) *
-                                                    double.tryParse(p['valor']);
-                                              }
-                                              c.reference.updateData({
-                                                'total':
-                                                    total.toStringAsFixed(2)
+                                        doc.reference.delete().then((_) {
+                                          Firestore.instance
+                                              .collection('caixas')
+                                              .document(
+                                                  estabelecimento.idCaixaAtual)
+                                              .collection('comandas')
+                                              .getDocuments()
+                                              .then((comandasDoc) {
+                                            for (var c
+                                                in comandasDoc.documents) {
+                                              c.reference
+                                                  .collection('pedidos')
+                                                  .getDocuments()
+                                                  .then((produtosDoc) {
+                                                double total = 0;
+                                                for (var p
+                                                    in produtosDoc.documents) {
+                                                  total =
+                                                      (p['quantidade'] as int) *
+                                                          double.tryParse(
+                                                              p['valor']);
+                                                }
+                                                c.reference.updateData({
+                                                  'total':
+                                                      total.toStringAsFixed(2)
+                                                });
                                               });
-                                            });
-                                          }
+                                            }
+                                          });
                                         });
                                         Navigator.of(context).pop();
                                       },
