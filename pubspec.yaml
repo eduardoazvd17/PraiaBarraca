@@ -17,7 +17,7 @@ environment:
   sdk: ">=2.1.0 <3.0.0"
 
 dependencies:
-  intl: 0.16.0
+  intl: ^0.16.1
   masked_text: 0.0.6
   cloud_firestore: 0.13.4+2
   firebase_auth: 0.15.5+2
