@@ -56,7 +56,7 @@ class _TelaHistoricoCaixaState extends State<TelaHistoricoCaixa> {
             mainAxisSize: MainAxisSize.max,
             children: <Widget>[
               Container(
-                height: altura * 0.22,
+                height: altura * 0.3,
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: EdgeInsets.all(altura * 0.01),
@@ -105,7 +105,7 @@ class _TelaHistoricoCaixaState extends State<TelaHistoricoCaixa> {
                 ),
               ),
               Container(
-                height: altura * 0.78,
+                height: altura * 0.7,
                 child: dataSelecionada == null
                     ? Padding(
                         padding: EdgeInsets.all(altura * 0.01),
