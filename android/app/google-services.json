@@ -8,9 +8,9 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:394717256142:android:02ba81ed5c8ed5b943339f",
+        "mobilesdk_app_id": "1:394717256142:android:90e0c4ecc8cd496a43339f",
         "android_client_info": {
-          "package_name": "dev.eduardoazevedo.praiabarraca"
+          "package_name": "com.eduardoazevedo.praiabarraca"
         }
       },
       "oauth_client": [
@@ -32,10 +32,10 @@
               "client_type": 3
             },
             {
-              "client_id": "394717256142-rdvmrtdnr17p6jth1j5t7c0dld7dkrd3.apps.googleusercontent.com",
+              "client_id": "394717256142-tpbdphvjvb4e05nis9khtnkffm4c4eub.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "br.net.praiabarraca"
+                "bundle_id": "com.eduardoazevedo.praiabarraca"
               }
             }
           ]
